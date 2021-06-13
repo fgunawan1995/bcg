@@ -1,0 +1,125 @@
+{
+	"info": {
+		"_postman_id": "df2f38a2-3dda-45a2-8835-0b36dc185ee8",
+		"name": "BCG",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Hello",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"query\": \"query Query() {hello}\",\n    \"variables\": {\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/query",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"query"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cart",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"query\": \"query Query($user_id:String!) {cart(user_id:$user_id){items{item{id,name},cart_qty,sub_total,disc_total,total},bonus_items{item{id,name},bonus_qty}}}\",\n    \"variables\": {\n        \"user_id\": \"1\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/query",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"query"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ATC",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"query\":\"mutation Mutation($add:AddItemToCart!) {addToCart(add:$add){items{item{id,name,current_stock},cart_qty,sub_total,disc_total,total},bonus_items{item{id,name},bonus_qty}}}\",\n\t\"variables\": {\n\t\t\"add\": {\n            \"item_id\": \"4\",\n\t\t\t\"qty\":1,\n            \"user_id\": \"1\"\n\t\t}\n\t}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/query",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"query"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Checkout",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"query\": \"mutation Mutation($user_id:String!) {checkout(user_id:$user_id)}\",\n    \"variables\": {\n        \"user_id\": \"1\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/query",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"query"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
